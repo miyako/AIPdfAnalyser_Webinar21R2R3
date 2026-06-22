@@ -1,0 +1,131 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "variable",
+	"windowSizingY": "variable",
+	"windowMinWidth": 620,
+	"windowMinHeight": 540,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onValidate",
+		"onClick",
+		"onOutsideCall",
+		"onDoubleClick",
+		"onDrop",
+		"onMenuSelect",
+		"onPluginArea",
+		"onDragOver",
+		"onTimer",
+		"onAfterKeystroke",
+		"onAfterEdit",
+		"onBeginDragOver",
+		"onBoundVariableChange",
+		"onPageChange"
+	],
+	"windowTitle": "AI PDF Summarizer",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"DropZone": {
+					"type": "input",
+					"text": "Drag & Drop a PDF file here or click to browse",
+					"left": 20,
+					"top": 17,
+					"width": 392,
+					"height": 32,
+					"readOnly": true,
+					"multiline": true,
+					"placeholder": "Drag & Drop a PDF file here or click to browse",
+					"backgroundColor": "#EFF3F8",
+					"borderStyle": "rounded",
+					"cornerRadius": 16,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/DropZone.4dm",
+					"dataSource": "Form:C1466.pdfPath"
+				},
+				"UploadButton": {
+					"type": "button",
+					"text": "Upload the file",
+					"left": 420,
+					"top": 17,
+					"width": 160,
+					"height": 32,
+					"backgroundColor": "#2563EB",
+					"textColor": "#FFFFFF",
+					"borderStyle": "rounded",
+					"cornerRadius": 12,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Analyze.4dm"
+				},
+				"HiddenFilePath": {
+					"type": "input",
+					"left": 0,
+					"top": 0,
+					"width": 1,
+					"height": 1,
+					"visible": false,
+					"enabled": false,
+					"dataSource": "Form.pdfPath"
+				},
+				"web area": {
+					"type": "webArea",
+					"left": 20,
+					"top": 69,
+					"width": 560,
+					"height": 526,
+					"webEngine": "embedded",
+					"methodsAccessibility": "all",
+					"borderStyle": "system"
+				},
+				"Input": {
+					"type": "input",
+					"left": 20,
+					"top": 601,
+					"width": 560,
+					"height": 48,
+					"dataSource": "Form:C1466.prompt",
+					"placeholder": "Send a message"
+				},
+				"Button": {
+					"type": "button",
+					"text": "",
+					"top": 606,
+					"left": 539,
+					"width": 40,
+					"height": 40,
+					"events": [
+						"onClick"
+					],
+					"imageHugsTitle": false,
+					"icon": "/RESOURCES/arrow.png",
+					"textPlacement": "center",
+					"style": "circular",
+					"method": "ObjectMethods/Button.4dm"
+				}
+			}
+		}
+	],
+	"geometryStamp": 252,
+	"method": "method.4dm",
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
+}
