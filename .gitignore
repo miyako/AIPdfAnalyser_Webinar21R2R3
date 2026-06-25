@@ -7,6 +7,9 @@ DerivedData/
 # Libraries
 Libraries/
 
+# No Trash
+project/Trash/*
+
 # User preferences
 userPreferences.*/
 
@@ -18,4 +21,5 @@ userPreferences.*/
 ehthumbs.db
 Thumbs.db
 
+# AI providers / models
 AIProviders.json
