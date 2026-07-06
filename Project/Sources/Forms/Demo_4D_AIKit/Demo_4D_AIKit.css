@@ -1,0 +1,9 @@
+#UploadButton {
+	text: "アップロード"
+}
+ #DropZone {
+	 placeholder: "PDFファイルをドラッグ&ドロップ"
+ }
+ #Input {
+	 placeholder: "メッセージを送信"
+ }
