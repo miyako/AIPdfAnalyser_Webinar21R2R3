@@ -154,6 +154,31 @@ function addAssistantMessage(message) {
 }
 
 /**
+ * Ajoute (append) du texte à la fin de la dernière bulle assistant,
+ * au lieu de créer une nouvelle bulle. Utile pour le streaming token
+ * par token. Si la dernière bulle n'est pas une bulle assistant (ou
+ * qu'il n'y a pas encore de message), une nouvelle bulle est créée.
+ * @param {string} chunk - Le fragment de texte à ajouter
+ */
+function appendAssistantMessage(chunk) {
+  const rows = messagesEl.children;
+  const lastRow = rows[rows.length - 1];
+  const lastBubble = lastRow ? lastRow.querySelector('.bubble.assistant') : null;
+
+  if (!lastBubble) {
+    appendBubble('assistant', chunk);
+    return;
+  }
+
+  // On garde le markdown brut accumulé pour re-parser l'ensemble à
+  // chaque append (un ``` ou ** peut être coupé entre deux chunks).
+  lastBubble._raw = (lastBubble._raw || '') + chunk;
+  lastBubble.innerHTML = markdownToHtml(lastBubble._raw);
+
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+}
+
+/**
  * Affiche un message dans le chat
  * @param {string} role - 'user' ou 'assistant'
  * @param {string} content - Le contenu du message
@@ -171,8 +196,12 @@ function appendBubble(role, content) {
       <div class="bubble ${role}">${html}</div>
     </div>`;
 
+  const bubble = row.querySelector('.bubble');
+  if (role === 'assistant') bubble._raw = content; // pour appendAssistantMessage
+
   messagesEl.appendChild(row);
   messagesEl.scrollTop = messagesEl.scrollHeight;
+  return bubble;
 }
 
 /**
