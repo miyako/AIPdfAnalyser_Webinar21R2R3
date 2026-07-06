@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><preferences stamp="14">
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="15">
 	<com.4d>
 		<web>
 			<standalone_server>
 				<configuration publish_at_startup="true"/>
 			</standalone_server>
 		</web>
+		<general allow_user_settings="true"/>
 	</com.4d>
 </preferences>
