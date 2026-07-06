@@ -2,8 +2,6 @@ property _fileInfo : Object
 
 Function uploadFile($path : 4D.File) : Boolean
 	
-	TRACE
-	
 	// Create an AI client instance using the AIManagement class.
 	var $clientAI:=cs.AIKit.OpenAI.new({provider: "openai"})
 	

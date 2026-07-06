@@ -5,12 +5,13 @@ If (FORM Event.code=On Load)
 	
 	Form.pdfPath:=$path.platformPath
 	Form.pdfFileName:=$path.name
-	Form.summaryText:="Ready to analyze "+$path.name+". Click Analyze to generate the summary."
 	
 	Form.aiManager:=cs.AIManager.new()
 	
 	WA SET CONTEXT(*; "web area"; Form.aiManager)
 	
 	WA OPEN URL(*; "web area"; "http://localhost/chat2.htm?"+Generate UUID)
+	
+	OBJECT SET ENABLED(*; "Button"; False)
 	
 End if 

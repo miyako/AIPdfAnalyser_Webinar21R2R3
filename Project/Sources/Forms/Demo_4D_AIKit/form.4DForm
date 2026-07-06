@@ -96,7 +96,12 @@
 					"height": 526,
 					"webEngine": "embedded",
 					"methodsAccessibility": "all",
-					"borderStyle": "system"
+					"borderStyle": "none",
+					"events": [
+						"onEndURLLoading"
+					],
+					"method": "ObjectMethods/web area.4dm",
+					"visibility": "hidden"
 				},
 				"Input": {
 					"type": "input",
@@ -104,7 +109,11 @@
 					"top": 601,
 					"width": 560,
 					"height": 48,
-					"dataSource": "Form:C1466.prompt"
+					"dataSource": "Form:C1466.prompt",
+					"events": [
+						"onAfterEdit"
+					],
+					"method": "ObjectMethods/Input.4dm"
 				},
 				"Button": {
 					"type": "button",
@@ -125,7 +134,7 @@
 			}
 		}
 	],
-	"geometryStamp": 252,
+	"geometryStamp": 253,
 	"method": "method.4dm",
 	"editor": {
 		"activeView": "View 1",
