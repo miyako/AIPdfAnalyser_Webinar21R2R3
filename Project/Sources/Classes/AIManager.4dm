@@ -5,7 +5,7 @@ Function uploadFile($path : 4D.File)
 	TRACE
 	
 	// Create an AI client instance using the AIManagement class.
-	var $clientAI:=cs.AIKit.OpenAI.new({provider: "OpenAI Provider"})
+	var $clientAI:=cs.AIKit.OpenAI.new({provider: "openai"})
 	
 	// Upload a file to the AI service.
 	// File(Form.pdfFileName) converts the file path into a File object.
@@ -33,7 +33,8 @@ Function uploadFile($path : 4D.File)
 Function chatWithFile($myPrompt : Text) : Text
 	
 	If (This._fileInfo=Null)
-		return "No File uploaded"
+		//return "No File uploaded"
+		return "ファイルをアップロードできませんでした"
 	End if 
 	
 	TRACE
@@ -45,11 +46,12 @@ Function chatWithFile($myPrompt : Text) : Text
 	// have already been uploaded and must be analyzed.
 	var $firstPrompt:="You are an assistant specializing in file analysis and parsing. Before we begin, several files have been uploaded to the server."
 	$firstPrompt+=" Your task is to read and analyze these files, then extract the requested information."
-	$firstPrompt+=" You must return a response in text format and in english that I can display directly in a web browser without Markdown tags or ```. The pictures are not allowed in the response"
+	$firstPrompt+=" You must return a response in text format that I can display directly in a web browser without Markdown tags or ```. The pictures are not allowed in the response"
+	$firstPrompt+=" You must respond in Japanese."
 	
 	//// Initialize the discussion array with the system message.
 	//// The discussion history will be sent to the AI model.
-	var $chatHelper:=$clientAI.chat.create($firstPrompt; {model: "model openai"})
+	var $chatHelper:=$clientAI.chat.create($firstPrompt; {model: "chat-reasoning"})
 	
 	// Create a user message containing the request prompt.
 	var $message:=cs.AIKit.OpenAIMessage.new({role: "user"; content: $myPrompt})

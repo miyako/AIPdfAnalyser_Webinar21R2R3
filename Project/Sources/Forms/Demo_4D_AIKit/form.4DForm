@@ -11,6 +11,9 @@
 	"windowMaxHeight": 32767,
 	"rightMargin": 20,
 	"bottomMargin": 20,
+	"css": [
+		"Demo_4D_AIKit.css"
+	],
 	"events": [
 		"onLoad",
 		"onValidate",
@@ -44,20 +47,24 @@
 					"width": 392,
 					"height": 32,
 					"readOnly": true,
-					"multiline": true,
-					"placeholder": "Drag & Drop a PDF file here or click to browse",
+					"multiline": "yes",
 					"backgroundColor": "#EFF3F8",
-					"borderStyle": "rounded",
+					"borderStyle": "none",
 					"cornerRadius": 16,
 					"events": [
-						"onClick"
+						"onClick",
+						"onDrop",
+						"onDragOver"
 					],
 					"method": "ObjectMethods/DropZone.4dm",
-					"dataSource": "Form:C1466.pdfPath"
+					"dataSource": "Form:C1466.pdfPath",
+					"dragging": "none",
+					"enterable": false,
+					"focusable": false,
+					"dropping": "custom"
 				},
 				"UploadButton": {
 					"type": "button",
-					"text": "Upload the file",
 					"left": 420,
 					"top": 17,
 					"width": 160,
@@ -97,8 +104,7 @@
 					"top": 601,
 					"width": 560,
 					"height": 48,
-					"dataSource": "Form:C1466.prompt",
-					"placeholder": "Send a message"
+					"dataSource": "Form:C1466.prompt"
 				},
 				"Button": {
 					"type": "button",
