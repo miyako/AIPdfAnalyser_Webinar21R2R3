@@ -1,6 +1,6 @@
 property _fileInfo : Object
 
-Function uploadFile($path : 4D.File)
+Function uploadFile($path : 4D.File) : Boolean
 	
 	TRACE
 	
@@ -60,6 +60,7 @@ Function chatWithFile($myPrompt : Text) : Text
 	// This allows the AI model to access and analyze the file.
 	$message.addFileId(This._fileInfo.id)
 	
+	var $response : Object
 	$response:=$chatHelper.prompt($message)
 	
 	If ($response.success)
