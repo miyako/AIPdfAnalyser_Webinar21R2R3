@@ -6,6 +6,9 @@ If (FORM Event.code=On Load)
 	Form.pdfPath:=$path.platformPath
 	Form.pdfFileName:=$path.name
 	
+	Form.pdfPath:=""
+	Form.pdfFileName:=""
+	
 	Form.aiManager:=cs.AIManager.new()
 	
 	WA SET CONTEXT(*; "web area"; Form.aiManager)
